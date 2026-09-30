@@ -1,0 +1,7 @@
+// file_picker 8.3.7 declares API 34 but its resolved lifecycle plugin requires 36.
+// finalizeDsl runs after the plugin's android block and before AGP creates variants.
+plugins.withId('com.android.library') {
+    androidComponents.finalizeDsl { androidDsl ->
+        androidDsl.compileSdk = Math.max(androidDsl.compileSdk ?: 0, 36)
+    }
+}

@@ -1,0 +1,46 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "oclock_app.c"
+        "oclock_album.c"
+        "oclock_board.c"
+        "oclock_button.c"
+        "oclock_page_scheduler.c"
+        "oclock_pages.c"
+        "oclock_i2c_bus.c"
+        "oclock_rlcd_port.cpp"
+        "oclock_renderer.c"
+        "oclock_environment.c"
+        "oclock_time.cpp"
+        "oclock_time_view.c"
+        "oclock_config.c"
+        "oclock_network.c"
+        "oclock_web.c"
+        "oclock_todo.c"
+        "oclock_weather.c"
+        "oclock_audio.cpp"
+    INCLUDE_DIRS
+        "."
+        "../../.vendor/waveshare-esp32-s3-rlcd-4.2/02_Example/ESP-IDF/04_I2C_PCF85063/components/ExternLib/SensorLib/src"
+        "../../.vendor/waveshare-esp32-s3-rlcd-4.2/02_Example/ESP-IDF/04_I2C_PCF85063/components/ExternLib/SensorLib/src/REG"
+        "../../.vendor/waveshare-esp32-s3-rlcd-4.2/02_Example/ESP-IDF/04_I2C_PCF85063/components/ExternLib/SensorLib/src/platform"
+        "../../.vendor/waveshare-esp32-s3-rlcd-4.2/02_Example/ESP-IDF/04_I2C_PCF85063/components/ExternLib/SensorLib/src/platform/espidf"
+    REQUIRES
+        driver
+        esp_event
+        esp_http_client
+        esp_lcd
+        esp_http_server
+        esp_netif
+        esp_wifi
+        esp_timer
+        esp_driver_i2c
+        json
+        esp_codec_dev
+        lwip
+        mbedtls
+        nvs_flash
+        spiffs
+        u8g2)
+
+target_compile_definitions(${COMPONENT_LIB} PRIVATE CONFIG_SENSORLIB_ESP_IDF_NEW_API)
